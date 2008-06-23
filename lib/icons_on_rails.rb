@@ -1,6 +1,22 @@
-module FamFamIconsOnRails
+module IconsOnRails
 
   VERSION='0.1.0'
+
+  def default_icon_set=( set )
+    @default_icon_set = set
+  end
+  
+  def default_icon_size=( size )
+    @default_icon_size = size
+  end 
+    
+  def default_icon_set
+    @default_icon_set ||= :aesthetica # :'fam-fam'
+  end
+
+  def default_icon_size
+    @default_icon_size ||= 24 #16
+  end
 
   # Insert an image tag with an icon with name equal to "name" param and
   # extension .png, with alt attribute and options.
@@ -12,16 +28,18 @@ module FamFamIconsOnRails
     opts[:border] = 0 unless opts[:border]
     opts[:align] = "bottom" unless opts[:align]
     opts[:alt] = alt
-    
-    image_tag "../icons/#{name}.png", opts
+    set = opts.delete(:set) || default_icon_set
+    size = opts.delete(:size) || default_icon_size
+    image_tag "../icons/#{set}/#{size}/#{name}.png", opts
   end
 
   # Insert a image for submit the form.
   # Uses the same syntax of icon
   def icon_submit_tag(name, alt = nil, opts = {})
     opts[:alt] = alt
-  
-    image_submit_tag "../icons/#{name}.png", opts
+    set = opts.delete(:set) || default_icon_set
+    size = opts.delete(:size) || default_icon_size
+    image_submit_tag "../icons/#{set}/#{size}/#{name}.png", opts
   end
 
 
@@ -42,10 +60,11 @@ module FamFamIconsOnRails
   
   
   def apply_function_icon_with_text(name, text, function, extra_js = "", alt = nil, *toggle_ids)
+    opts = toggle_ids.pop if toggle_ids.last.is_a?(Hash)
     extra_js ||= ""; extra_js = "; " + extra_js unless extra_js.blank?
     js = toggle_ids.collect {|toggle_id| "$('#{toggle_id}').#{function}()" }.join("; ") + extra_js
     
-    content_tag :span, icon(name, alt) + " " + text, :onclick => js
+    content_tag :span, icon(name, alt, opts) + " " + text, :onclick => js
   end
 
   
