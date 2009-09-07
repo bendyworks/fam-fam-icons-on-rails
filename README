@@ -12,7 +12,8 @@ parameter:
 <%= icon :information, "Information icon", :border => 0 %>
 
 You can see a preview of the icons in the preview_icons.png file at the root of 
-this plugin directory (RAILS_ROOT/vendor/plugins/fam_fam_icons_on_rails/preview_icons.png)
+this plugin directory:
+RAILS_ROOT/vendor/plugins/fam_fam_icons_on_rails/icons/fam-fam/preview_icons.png
 or at http://www.famfamfam.com/lab/icons/silk/previews/index_abc.png
 
 These icons are a work of Mark James:
