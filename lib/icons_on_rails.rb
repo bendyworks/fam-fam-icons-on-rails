@@ -67,5 +67,10 @@ module IconsOnRails
     content_tag :span, icon(name, alt, opts) + " " + text, :onclick => js
   end
 
+  # offer up the preview of all icons for the current set
+  def icon_preview(opts = {})
+    set = opts.delete(:set) || default_icon_set
+    image_tag "../icons/#{set}/preview_icons.png", opts
+  end
   
 end
