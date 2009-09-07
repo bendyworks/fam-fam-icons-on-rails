@@ -11,11 +11,11 @@ module IconsOnRails
   end 
     
   def default_icon_set
-    @default_icon_set ||= :aesthetica # :'fam-fam'
+    @default_icon_set ||= 'fam-fam' # :aesthetica # :'fam-fam'
   end
 
   def default_icon_size
-    @default_icon_size ||= 24 #16
+    @default_icon_size ||= 16 # 24 #16
   end
 
   # Insert an image tag with an icon with name equal to "name" param and
