@@ -10,4 +10,4 @@ FileUtils.mkdir target unless File.exist? target
 
 puts "Copying icons directory to public/images folder ..."
 FileUtils.cp_r source, target
-puts "#{Dir[source].size} icons installed"
+puts "Icons installed"
