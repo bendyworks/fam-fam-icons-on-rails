@@ -3,12 +3,11 @@ RAILS_ROOT = File.join( File.dirname(__FILE__), "..", "..", ".." ) unless define
 require "fileutils"
 
 # Copy *.png icons to the public folder
-target = File.join RAILS_ROOT, "public", "icons"
-source = File.join File.dirname(__FILE__), "icons", "*.png"
-FileUtils.mkdir target unless File.exist? target
-puts "Coping png icons to public folder ..."
-Dir[source].each do |png_file|
-  FileUtils.cp png_file, target
-end
-puts "#{Dir[source].size} icons installed"
+source = File.join File.dirname(__FILE__), "icons"
 
+target = File.join RAILS_ROOT, "public", "images"
+FileUtils.mkdir target unless File.exist? target
+
+puts "Copying icons directory to public/images folder ..."
+FileUtils.cp_r source, target
+puts "#{Dir[source].size} icons installed"

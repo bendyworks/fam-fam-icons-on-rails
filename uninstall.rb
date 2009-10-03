@@ -1,13 +1,4 @@
-RAILS_ROOT = File.join( File.dirname(__FILE__), "..", "..", ".." ) unless defined? RAILS_ROOT
 
-require "fileutils"
+# TODO: Automatically remove only files that came with the project while maintaining user's custom files.
 
-target_dir = File.join RAILS_ROOT, "public", "icons"
-puts "Removing png icons from public folder ..."
-Dir[source].each do |png_file|
-  target = File.join target_dir, File.basename(png_file)
-  FileUtils.rm target
-end
-puts "Removing icons folder unless not empty"
-FileUtils.rmdir target_dir
-
+puts "Please remove public/images/icons directory and contents if no longer needed."
