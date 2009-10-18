@@ -1,6 +1,6 @@
 RAILS_ROOT = File.join( File.dirname(__FILE__), "..", "..", ".." ) unless defined? RAILS_ROOT
 
-require "fileutils"
+require "fileutils" 
 
 # Copy *.png icons to the public folder
 source = File.join File.dirname(__FILE__), "icons"

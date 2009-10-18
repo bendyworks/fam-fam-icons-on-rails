@@ -11,7 +11,7 @@ module IconsOnRails
   end
 
   def default_icon_set
-    @default_icon_set ||= 'fam-fam' # :aesthetica # :'fam-fam'
+    @default_icon_set ||= 'famfamfam-silk' # :aesthetica # :'famfamfam-silk'
   end
 
   def default_icon_size
@@ -23,7 +23,7 @@ module IconsOnRails
   # Example:
   #    <%= icon :information, "Information icon", :border => 0 %>
   # will generate:
-  #    <img src="/images/icons/fam-fam/16/information.png" alt="Information icon" border="0" />
+  #    <img src="/images/icons/famfamfam-silk/16/information.png" alt="Information icon" border="0" />
   def icon(name, alt = nil, opts = {})
     opts[:border] = 0 unless opts[:border]
     opts[:align] = "bottom" unless opts[:align]
@@ -68,6 +68,6 @@ module IconsOnRails
   # offer up the preview of all icons for the current set
   def icon_preview(opts = {})
     set = opts.delete(:set) || default_icon_set
-    image_tag "icons/#{set}/preview_icons.png", opts
+    image_tag "icons/#{set}/preview.png", opts
   end
 end
